@@ -53,11 +53,15 @@ else{
     findDuplicates(directory, filesMap)
     long delta = System.currentTimeMillis() - start
 
-    println "FindDuplicatesFiles took $delta ms to calculate the directory \".\" "
-
+    long duplicates = 0
     filesMap.each{
         if(it.value.size()> 1)
             println "${it.key} -> ${it.value}"
+            duplicates ++
     }
+
+    println "FindDuplicatesFiles took $delta ms to calculate the directory \".\" "
+
+    println "$duplicates duplicates files found."
 }
 
